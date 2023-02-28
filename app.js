@@ -1,8 +1,16 @@
-const exptress = require('express')
+const express = require('express')
 const app = express()
 
 app.get('/', function(req, res){
-	res.send('hello')
+	res.sendFile( __dirname + '/public/holla/index.html')
 })
 
-app.list(3030)
+app.get('/', function(req, res){
+	res.sendFile( __dirname + '/public/holla/index.html')
+})
+
+app.get('*', function(req, res){
+	res.sendFile( __dirname + '/public/not-found/index.html')
+})
+
+app.listen(3030)
